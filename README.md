@@ -1,6 +1,8 @@
 # Tarea MapReduce - Python puro
 
-Nombre: Sebastián
+**Nombre:** Sebastian Muñoz Palacio  
+**Curso:** Big Data Analytics  
+**Programa:** Maestría en Ciencia de Datos - Universidad Pontificia Bolivariana (UPB)
 
 Ejercicios del módulo **01-mapreduce / 01-pure-python** del curso Big Data 101, organizados en un notebook por nivel.
 
