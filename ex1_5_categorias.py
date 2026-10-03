@@ -15,14 +15,17 @@ sales = [
 
 def mapper(sale):
     """Emite (categoría, monto)."""
-    # TODO
-    pass
+    yield (sale['category'], sale['amount'])
 
 
 def reducer(category, amounts):
     """Devuelve un diccionario con 'count', 'total' y 'avg'."""
-    # TODO
-    pass
+    total = sum(amounts)
+    return {
+        'count': len(amounts),
+        'total': total,
+        'avg': round(total / len(amounts), 1),
+    }
 
 
 if __name__ == "__main__":
@@ -38,4 +41,6 @@ if __name__ == "__main__":
 # Furniture: {'count': 2, 'total': 950, 'avg': 475.0}
 #
 # Salida obtenida:
-# (pega aquí lo que imprimió el programa)
+# Electronics: {'count': 3, 'total': 1675, 'avg': 558.3}
+# Furniture: {'count': 2, 'total': 950, 'avg': 475.0}
+# Datos vacíos: {}

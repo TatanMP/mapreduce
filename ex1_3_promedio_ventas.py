@@ -16,14 +16,14 @@ sales = [
 
 def mapper(sale):
     """Emite (producto, monto)."""
-    # TODO
-    pass
+    yield (sale['product'], sale['amount'])
 
 
 def reducer(product, amounts):
     """Calcula el promedio de ventas de un producto (1 decimal)."""
-    # TODO: recuerda evitar dividir entre cero
-    pass
+    if not amounts:                     # evita dividir entre cero
+        return 0
+    return round(sum(amounts) / len(amounts), 1)
 
 
 if __name__ == "__main__":
@@ -39,4 +39,10 @@ if __name__ == "__main__":
 # Keyboard: 77.5
 #
 # Salida obtenida:
-# (pega aquí lo que imprimió el programa)
+# ==================================================
+# Promedio de ventas por producto
+# ==================================================
+# Laptop: 1183.3
+# Keyboard: 77.5
+# Mouse: 27.5
+# Datos vacíos: {}

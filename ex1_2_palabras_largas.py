@@ -15,15 +15,15 @@ text = [
 
 def mapper(line):
     """Emite (palabra, 1) solo si la palabra tiene más de 5 caracteres."""
-    # TODO: recorre las palabras de la línea (en minúsculas),
-    #       quita signos con .strip('.,!?') y si len(word) > 5 haz yield (word, 1)
-    pass
+    for word in line.lower().split():   # separa la línea en palabras
+        word = word.strip('.,!?')       # quita signos de puntuación
+        if len(word) > 5:               # solo palabras largas
+            yield (word, 1)
 
 
 def reducer(word, counts):
     """Suma las apariciones de una palabra."""
-    # TODO
-    pass
+    return sum(counts)
 
 
 if __name__ == "__main__":
@@ -34,4 +34,16 @@ if __name__ == "__main__":
     print("Datos vacíos:", mapreduce([], mapper, reducer))
 
 # Salida obtenida:
-# (pega aquí lo que imprimió el programa)
+# ==================================================
+# Palabras largas
+# ==================================================
+# mapreduce: 3
+# programming: 1
+# processes: 1
+# volumes: 1
+# phases: 1
+# transforms: 1
+# reduce: 1
+# aggregates: 1
+# results: 1
+# Datos vacíos: {}

@@ -18,14 +18,16 @@ temperatures = [
 
 def mapper(record):
     """Emite (ciudad, temperatura)."""
-    # TODO
-    pass
+    yield (record['city'], record['temperature'])
 
 
 def reducer(city, temps):
     """Devuelve un diccionario con 'min', 'max' y 'avg'."""
-    # TODO
-    pass
+    return {
+        'min': min(temps),
+        'max': max(temps),
+        'avg': round(sum(temps) / len(temps), 1),
+    }
 
 
 if __name__ == "__main__":
@@ -42,4 +44,7 @@ if __name__ == "__main__":
 # Cali: {'min': 28, 'max': 30, 'avg': 29.0}
 #
 # Salida obtenida:
-# (pega aquí lo que imprimió el programa)
+# Medellin: {'min': 22, 'max': 24, 'avg': 23.0}
+# Bogota: {'min': 13, 'max': 15, 'avg': 14.0}
+# Cali: {'min': 28, 'max': 30, 'avg': 29.0}
+# Datos vacíos: {}
